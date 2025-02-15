@@ -1,0 +1,6 @@
+requests
+docker
+paramiko
+python-dotenv
+PyGithub
+
