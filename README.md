@@ -1,4 +1,3 @@
-```markdown
 # Skyline Codeworks - AI Code Generator & Docker Runner
 
 This project is a Python-based tool designed to automate code generation, testing, and deployment in a secure and efficient way. It integrates a local language model (LLM) API to generate Python code on demand, runs that code inside a Docker container via SSH, and even automates GitHub commits and pull requests for continuous integration.
