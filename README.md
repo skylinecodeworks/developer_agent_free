@@ -44,7 +44,7 @@ Este proyecto es una herramienta en Python que automatiza la generación, prueba
 1. **Clone the Repository / Clona el Repositorio:**
    ```bash
    git clone https://github.com/skylinecodeworks/developer_agent_free
-   cd tu_repositorio
+   cd developer_agent_free
    ```
 
 2. **Install Dependencies / Instalar Dependencias:**
