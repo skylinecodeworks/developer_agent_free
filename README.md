@@ -43,7 +43,7 @@ Este proyecto es una herramienta en Python que automatiza la generación, prueba
 
 1. **Clone the Repository / Clona el Repositorio:**
    ```bash
-   git clone https://github.com/tu_usuario/tu_repositorio.git
+   git clone https://github.com/skylinecodeworks/developer_agent_free
    cd tu_repositorio
    ```
 
