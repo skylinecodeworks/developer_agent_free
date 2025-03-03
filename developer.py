@@ -25,6 +25,8 @@ SSH_PORT = int(os.getenv("SSH_PORT", 2222))
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 GITHUB_REPO = os.getenv("GITHUB_REPO", "")
 
+MODEL = os.getenv("OLLAMA_MODEL", "mistral:latest")
+
 # ---------------------------------------------------------
 # Logger
 # ---------------------------------------------------------
