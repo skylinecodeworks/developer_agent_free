@@ -40,72 +40,134 @@ Este proyecto es una herramienta en Python que automatiza la generación, prueba
 ---
 
 ## Setup & Installation / Configuración e Instalación
+# Skyline Codeworks - AI Code Generator & Docker Runner with Astral UV
 
-1. **Clone the Repository / Clona el Repositorio:**
+This project is a Python-based tool designed to automate code generation, testing, and deployment in a secure and efficient way. It uses Astral UV for project management and dependency handling, integrates a local language model (LLM) API to generate Python code on demand, runs that code inside a Docker container via SSH, and automates GitHub commits and pull requests for continuous integration.
+
+---
+
+## Features
+
+- **Dynamic Code Generation:**
+  Utilizes a local LLM to generate Python code based on user input.
+
+- **Docker Integration:**
+  Runs the generated code in a secure Docker container, ensuring a consistent and isolated environment.
+
+- **SSH Command Execution:**
+  Connects to the container using SSH to execute installation, linting, and testing commands.
+
+- **Automated Quality Checks:**
+  Uses tools like Ruff for formatting and pytest for testing, ensuring high code quality standards.
+
+- **GitHub Automation:**
+  Supports continuous integration by automating commits and pull requests directly from the script.
+
+---
+
+## Requirements
+
+- **Python 3.10+**
+- **Docker:** Ensure Docker is installed and running.
+- **SSH Client (via paramiko):** For command execution within the container.
+- **Local LLM API:** A local service responding to the URL defined by `LLM_URL`.
+- **GitHub Account & Token:** For integration with GitHub (set in `GITHUB_TOKEN` and `GITHUB_REPO`).
+
+---
+
+## Setup & Installation
+
+1. **Clone the Repository:**
    ```bash
    git clone https://github.com/skylinecodeworks/developer_agent_free
    cd developer_agent_free
    ```
 
-2. **Install Dependencies / Instalar Dependencias:**
+2. **Install Astral UV:**
    ```bash
-   pip install -r requirements.txt
+   pip install astral-uv
    ```
 
-3. **Environment Variables / Variables de Entorno:**
+3. **Initialize the Project with Astral UV:**
+   ```bash
+   uv init
+   ```
 
-   Create a `.env` file in the project root and configure the following variables:
+   This will generate a `pyproject.toml` file with the basic project configuration.
 
-   - `LLM_URL`: URL for the local language model API (por ejemplo, `http://localhost:11434/api/generate`).
-   - `DOCKER_IMAGE`: Docker image to use (default: `python:3.10-slim`).
-   - `SSH_USER`: Username for SSH connections (por ejemplo, `devuser`).
-   - `SSH_PASSWORD`: Password for SSH connections (por ejemplo, `devpass`).
-   - `SSH_PORT`: Port for SSH (default: `2222`).
-   - `GITHUB_TOKEN`: Your GitHub token for authentication.
-   - `GITHUB_REPO`: GitHub repository (format: `username/repo`).
+4. **Add Dependencies using Astral UV:**
+   ```bash
+   uv add paramiko docker requests
+   ```
+
+5. **Configure Environment Variables:**
+   Create a `.env` file in the project root and set the following variables:
+
+   ```env
+   LLM_URL=http://localhost:11434/api/generate
+   DOCKER_IMAGE=python:3.10-slim
+   SSH_USER=devuser
+   SSH_PASSWORD=devpass
+   SSH_PORT=2222
+   GITHUB_TOKEN=your_github_token
+   GITHUB_REPO=username/repo
+   ```
 
 ---
 
-## Usage / Uso
+## Usage
 
 Run the main script:
 ```bash
-python developer.py
+uv run main.py
 ```
 
-The tool will prompt you to:
+The tool will guide you to:
 1. Describe the coding task.
 2. Generate code using the LLM API.
 3. Test and execute the code inside a secure Docker container.
 4. Optionally, commit the code and create a pull request in GitHub.
 
-El programa te guiará para:
-1. Describir la tarea de codificación.
-2. Generar código mediante la API del LLM.
-3. Probar y ejecutar el código en un contenedor Docker seguro.
-4. Opcionalmente, hacer commit y crear un pull request en GitHub.
+---
+
+## Development Workflow
+
+- **Adding Dependencies:**
+  To add a new dependency, use:
+  ```bash
+  uv add <package_name>
+  ```
+
+- **Running Tests:**
+  ```bash
+  uv test
+  ```
+
+- **Linting Code:**
+  ```bash
+  uv lint
+  ```
 
 ---
 
-## Contributing / Contribuciones
+## Contributing
 
 Contributions, bug reports, and feature requests are welcome! Feel free to open an issue or submit a pull request.
 
-¡Se agradecen contribuciones, reportes de errores y solicitudes de nuevas funcionalidades! No dudes en abrir un issue o enviar un pull request.
-
 ---
 
-## License / Licencia
+## License
 
 This project is licensed under the [MIT License](LICENSE).
 
-Este proyecto está bajo la [Licencia MIT](LICENSE).
+---
+
+## Contact
+
+For questions or suggestions, reach out via the GitHub repository or contact the Skyline Codeworks team at (tom@skylinecodew.com).
 
 ---
 
-## Contact / Contacto
+For more information on using Astral UV for Python project management, refer to the [official documentation](https://docs.astral.sh/uv/).
 
-For questions or suggestions, feel free to reach out via the GitHub repository or contact the Skyline Codeworks team (tom@skylinecodew.com)
 
-Para preguntas o sugerencias, puedes contactar a través del repositorio de GitHub o comunicarte con el equipo de Skyline Codeworks. (tom@skylinecodew.com)
-```
