@@ -1,0 +1,13 @@
+[project]
+name = "developer-agent-free"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "docker>=7.1.0",
+    "paramiko>=3.5.1",
+    "pygithub>=2.6.1",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.3",
+]
